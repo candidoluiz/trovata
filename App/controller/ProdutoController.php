@@ -11,7 +11,7 @@ class ProdutoController extends Controller
 
     $Produtos = $this->model('Produto'); // é retornado o model Produto()
     $data = $Produtos::findAllByEmpresaId($empresaId);
-    $this->view('produto/index', ['produtos' => $data]);    
+    $this->view('produto/index', ['produtos' => $data]);
   }
 
 }
