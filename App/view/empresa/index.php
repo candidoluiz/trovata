@@ -1,7 +1,7 @@
 <main>
   <div class="container jumbotron">
     <div class="row">
-      <form method="POST" action="/produto/list">
+      <form method="POST" action="/produto/lista">
       <div class="col-12 " style="margin-top:100px">
         <h2>Empresas</h2>
       

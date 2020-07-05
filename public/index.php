@@ -7,7 +7,7 @@
   </head>
   <body class="p-3 mb-2 bg-secondary text-dark">
     <header class="navbar">
-      <img class="img-fluid mx-auto" style="width: 1200px;" src="/assets/img/banner.jpg">
+      <img class="img-fluid mx-auto" style="width: 1200px;" src="/assets/img/california.jpg">
     </header>
   <?php
     require '../App/autoload.php';

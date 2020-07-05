@@ -8,7 +8,7 @@ function editarProduto( idProduto){
 }
 
 function novoProduto(){
-	window.location.href='/produto/detalhe';
+	window.location.href='/produto/novo';
 }
 
 function cancelar(){

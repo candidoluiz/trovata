@@ -4,7 +4,7 @@ use App\core\Controller;
 
 class ProdutoController extends Controller
 {
-  public function list()
+  public function lista()
   {
 
     $empresaId = $_POST['emp'];
@@ -12,6 +12,11 @@ class ProdutoController extends Controller
     $Produtos = $this->model('Produto'); // é retornado o model Produto()
     $data = $Produtos::findAllByEmpresaId($empresaId);
     $this->view('produto/index', ['produtos' => $data]);
+  }
+
+  public function novo()
+  {
+    $this->view('produto/novo');
   }
 
 }
