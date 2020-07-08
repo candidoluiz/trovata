@@ -13,7 +13,13 @@ class Produto
   {
 
     $conn = new Database();
-    $result = $conn->executeQuery('SELECT * FROM produto p inner join empresa  on p.EMPRESA=EMPRESA.EMPRESA WHERE p.EMPRESA = :ID', array(':ID' => $id));
+    $result = $conn->executeQuery(
+      'SELECT * FROM produto p 
+      inner join empresa  on p.EMPRESA=EMPRESA.EMPRESA 
+      inner join grupo_produto gp on p.grupo_produto = gp.grupo_produto 
+      inner join tipo_complemento tc on tc.TIPO_COMPLEMENTO = gp.TIPO_COMPLEMENTO
+      WHERE p.EMPRESA = :ID', array(':ID' => $id));
+
     return $result->fetchAll(PDO::FETCH_ASSOC);
   }
 
