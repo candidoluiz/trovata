@@ -14,7 +14,7 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <button   type="submit"  class="btn btn-outline-primary">Confirmar</button>        
+        <button  type="submit"  class="btn btn-outline-primary">Confirmar</button>        
       </div>
     </div>
     </form>

@@ -18,14 +18,17 @@
         <div class="table-responsive-md">
           
         
-        <table class=" table table-striped">
+        <table class=" table table-striped" id="userTable">
           <thead>
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Produto</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Complemento</th>
               <th scope="col">Peso Liquido</th>
               <th scope="col"></th>
-               <th scope="col"></th>
+              <th scope="col"></th>
+             
             </tr>
           </thead>
           <tbody>
@@ -33,6 +36,8 @@
             <tr>              
               <th scope="row"><?= $produto['PRODUTO'] ?></th>
               <td><?= $produto['DESCRICAO_PRODUTO'] ?></td>
+              <td><?= $produto['DESCRICAO_GRUPO_PRODUTO'] ?></td>
+              <td><?= $produto['DESCRICAO_TIPO_COMPLEMENTO'] ?></td>
               <td><?= $produto['PESO_LIQUIDO'] ?></td>              
               <td><button onClick="editarProduto(<?= $produto['PRODUTO'] ?>)" type="button" class="btn btn-outline-success">Editar</button></td>
               <td><button data-toggle="modal" data-target="#confirmacaoModal" type="button" class="btn btn-outline-danger">Excluir</button></td>
@@ -46,7 +51,22 @@
     </div>
   </div>
 </main>
+<script>
+$(document).ready(function() {
+    $('#userTable').DataTable({
+      "columns": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      {"orderable" : false},
+      {"orderable" : false}
 
+      ]
+    });
+});
+</script>
 <!-- Modal -->
 <div class="modal fade" id="confirmacaoModal" tabindex="-1" role="dialog" aria-labelledby="confirmacaoModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
