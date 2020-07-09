@@ -1,6 +1,7 @@
 <?php  
 
-$produto = $data['produto'][0];
+$produto = $data[0]['produto'][0];
+$todosGrupo = $data[0]['todos'];
 
 ?>
 <main>
@@ -10,12 +11,12 @@ $produto = $data['produto'][0];
         <h1>Editar Produto</h1>
       </div>
     </div>
-    <form action="/produto/gravar">
+    <form action="/produto/update/<?= $produto['PRODUTO']?>" method="POST">
 
       <div class="form-row">
         <div class="form-group col-md-3">
             <label for="produto">Produto</label>
-            <input type="text" class="form-control" id="produto" name="produto" value="<?= $produto['PRODUTO']?>">
+            <input type="number" class="form-control" id="produto" name="produto" value="<?= $produto['PRODUTO']?>">
         </div>
         <div class="form-group col-md-9">
             <label for="descricao">Descrição</label>
@@ -31,8 +32,8 @@ $produto = $data['produto'][0];
         <div class="form-group col-md-4">
           <label for="grupoProduto">Grupo Produto</label>
           <select class="form-control" name="grupoProduto" id="grupoProduto">
-            <?php foreach ($data['grupoProdutos'] as $gp) { ?>
-            <option value="<?= $gp['GRUPO_PRODUTO'] ?>"><?= $gp['DESCRICAO_GRUPO_PRODUTO'] ?></option>
+            <?php foreach ($todosGrupo as $gp) { ?>
+            <option value="<?= $gp['GRUPO_PRODUTO'] ?>" <?= ($gp['GRUPO_PRODUTO'] == $produto['GRUPO_PRODUTO']? 'selected' : '')?>><?= $gp['DESCRICAO_GRUPO_PRODUTO'] ?></option>
           <?php } ?>
 
           </select>          
@@ -52,7 +53,7 @@ $produto = $data['produto'][0];
         </div>
         <div class="form-group col-md-4">
           <label for="peso">Peso Liquido</label>
-          <input type="number" class="form-control" id="peso" name="pesoLiquido" value="<?= $produto['PESO_LIQUIDO'] ?>">          
+          <input type="text" class="form-control" id="peso" name="pesoLiquido" value="<?= $produto['PESO_LIQUIDO'] ?>">          
         </div>
         <div class="form-group col-md-4">
           <label for="fiscal">Classificação Fiscal</label>
@@ -72,7 +73,8 @@ $produto = $data['produto'][0];
       </div>
 
       <!-- Fim do formulário-->      
-      <button type="submit" class="btn btn-primary">Gravar</button>
+      <button type="submit" class="btn btn-primary">Editar</button>
+      <button onClick="cancelar()" type="button" class="btn btn-warning">Cancelar</button>
     </form>
   </div>
 </main>
