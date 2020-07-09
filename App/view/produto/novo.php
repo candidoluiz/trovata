@@ -10,7 +10,7 @@
       <div class="form-row">
         <div class="form-group col-md-3">
             <label for="produto">Produto</label>
-            <input type="text" class="form-control" id="produto" name="produto">
+            <input type="number" class="form-control" id="produto" name="produto">
         </div>
         <div class="form-group col-md-9">
             <label for="descricao">Descrição</label>
@@ -47,7 +47,7 @@
         </div>
         <div class="form-group col-md-4">
           <label for="peso">Peso Liquido</label>
-          <input type="number" class="form-control" id="peso" name="pesoLiquido">          
+          <input type="text" class="form-control" id="peso" name="pesoLiquido">          
         </div>
         <div class="form-group col-md-4">
           <label for="fiscal">Classificação Fiscal</label>
@@ -68,6 +68,7 @@
 
       <!-- Fim do formulário-->      
       <button type="submit" class="btn btn-primary">Gravar</button>
+      <button onClick="cancelar()" type="button" class="btn btn-warning">Cancelar</button>
     </form>
   </div>
 </main>

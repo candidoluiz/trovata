@@ -22,4 +22,11 @@ class EmpresaController extends Controller
    // }
   }
 
+  public function fechar()
+  {
+    Session_start();
+    Session_destroy();
+    header("Location: /empresa/index");
+  }
+
 }

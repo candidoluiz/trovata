@@ -1,5 +1,6 @@
 <main>
   <div class="container jumbotron">
+    <button onclick="location.href ='/empresa/fechar'" type="button" class="btn btn-danger">Selecionar Empresa</button>
     <div class="row">      
       <div class="col-10 offset-2" >
         <h2 class="mx-auto " style="width: 50%;"><?php print_r($data['produtos'][0]['NOME_FANTASIA']) ?></h2>
@@ -40,7 +41,7 @@
               <td><?= $produto['DESCRICAO_TIPO_COMPLEMENTO'] ?></td>
               <td><?= $produto['PESO_LIQUIDO'] ?></td>              
               <td><button onClick="editarProduto(<?= $produto['PRODUTO'] ?>)" type="button" class="btn btn-outline-success">Editar</button></td>
-              <td><button data-toggle="modal" data-target="#confirmacaoModal" type="button" class="btn btn-outline-danger">Excluir</button></td>
+              <td><button onClick="passarValor(<?= $produto['PRODUTO'] ?>)" data-toggle="modal" data-target="#confirmacaoModal" type="button" class="btn btn-outline-danger">Excluir</button></td>
             </tr>
             <?php }?>
           </tbody>
@@ -79,10 +80,11 @@ $(document).ready(function() {
       </div>
       <div class="modal-body">
         Deseja realmente excluir esse produto?
+        <input type="hidden" name="campo" id="campo">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger">Excluir</button>
+        <button onClick="deletar(valor())" type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
       </div>
     </div>
   </div>
