@@ -1,3 +1,11 @@
+<?php 
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  header ('Location: ' . $_SERVER['REQUEST_URI']);
+  exit();
+}
+
+?>
 <main>
   <div class="container jumbotron">
     <div class="row p-3">

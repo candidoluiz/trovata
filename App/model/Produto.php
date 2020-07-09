@@ -7,7 +7,6 @@ use PDO;
 
 class Produto
 {
-  //colocar atributos
 
     public static function findAllByEmpresaId($id)
   {

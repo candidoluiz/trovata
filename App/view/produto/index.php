@@ -1,3 +1,12 @@
+<?php 
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  header ('Location: ' . $_SERVER['REQUEST_URI']);
+  exit();
+}
+
+?>
+
 <main>
   <div class="container jumbotron">
     <button onclick="location.href ='/empresa/fechar'" type="button" class="btn btn-danger">Selecionar Empresa</button>

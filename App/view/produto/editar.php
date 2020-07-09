@@ -1,4 +1,9 @@
-<?php  
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  header ('Location: ' . $_SERVER['REQUEST_URI']);
+  exit();
+}
 
 $produto = $data[0]['produto'][0];
 $todosGrupo = $data[0]['todos'];
@@ -73,7 +78,7 @@ $todosGrupo = $data[0]['todos'];
       </div>
 
       <!-- Fim do formulário-->      
-      <button type="submit" class="btn btn-primary">Editar</button>
+      <button type="submit" class="btn btn-primary">Gravar</button>
       <button onClick="cancelar()" type="button" class="btn btn-warning">Cancelar</button>
     </form>
   </div>

@@ -14,7 +14,7 @@ class Database extends PDO
 
   // armazena a conexão
   private $conn;
-  //private $num_por_pag = 10;
+
 
   public function __construct()
   {

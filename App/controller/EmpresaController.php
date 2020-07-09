@@ -6,20 +6,20 @@ class EmpresaController extends Controller
 {
   public function index()
   {
-	//session_start();
+	session_start();
 
-    $Empresas = $this->model('Empresa'); // é retornado o model Empresa()
+    $Empresas = $this->model('Empresa');
     $data = $Empresas::findAll();
     
 
-   // if (!isset($_SESSION['empresa'])) 
-   // {
+    if (!isset($_SESSION['empresa'])) 
+    {
     	$this->view('empresa/index', ['empresas' => $data]);
-   // }
-    //else
-   // {
-    	//header("Location: /produto/lista");
-   // }
+    }
+    else
+    {
+      header("Location: /produto/lista");
+    }
   }
 
   public function fechar()
