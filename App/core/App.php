@@ -10,7 +10,7 @@ class App
   protected $method = 'index';
   protected $page404 = false;
   protected $params = [];
-  // Método construtor
+
   public function __construct()
   {
     $URL_ARRAY = $this->parseUrl();

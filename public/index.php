@@ -15,7 +15,7 @@
     
     
     <header class="navbar">
-      <img class="img-fluid mx-auto" style="width: 1200px;" src="/assets/img/california.jpg">
+      <img class="img-fluid mx-auto" style="width: 1200px;" src="/assets/img/TESTE.png">
     </header>
   <?php
     require '../App/autoload.php';

@@ -16,22 +16,14 @@ class ProdutoController extends Controller
     }
   }
   public function lista()
-  {  /*
-    session_start();
-
-    if (!isset($_SESSION['empresa'])) {
-     $_SESSION['empresa']=$_POST['emp'];
-    }
-    //$empresaId = $_POST['emp'];
-    */
-    $Produtos = $this->model('Produto'); // é retornado o model Produto()
+  { 
+    $Produtos = $this->model('Produto'); 
     $data = $Produtos::findAllByEmpresaId($_SESSION['empresa']);
     $this->view('produto/index', ['produtos' => $data]);
   }
 
   public function novo()
-  {
-    //$this->verificarSession();
+  {   
 
     $GrupoProdutos = $this->model('GrupoProduto');
     $data = $GrupoProdutos::findAll();
@@ -40,33 +32,21 @@ class ProdutoController extends Controller
 
   public function editar($id)
   {
-     //$this->verificarSession();
-     //$produto = $_POST;
-
+    
     $Produtos = $this->model('Produto');
     $GrupoProdutos = $this->model('GrupoProduto');
     $data['produto'] = $Produtos::findById($id);
     $data['todos'] = $GrupoProdutos::findAll();
-/*
-    foreach ($data['todos'] as  $value) {
-     print_r($value['DESCRICAO_GRUPO_PRODUTO']);
-    }
-*/
-    $this->view('produto/editar', [$data]);
-     //header("Location: /produto/lista");
-
+    $this->view('produto/editar', [$data]);     
   }
 
   public function gravar()
-  {
-    //$this->verificarSession();
+  {   
     $produto = $_POST;
     $produto['empresa'] = $_SESSION['empresa'];
     $Produto = $this->model('Produto');
     $Produto::insert($produto);
-    //$data = $Produto::findAllByEmpresaId($produto['empresa']);
-
-     header("Location: /produto/lista");
+    header("Location: /produto/lista");
 
   }
 
@@ -84,15 +64,4 @@ class ProdutoController extends Controller
     $Produto::delete($id);
     header("Location: /produto/lista");
   }
-/*
-  private function verificarSession()
-  {
-     session_start();
-    if (!isset($_SESSION['empresa'])) 
-    {
-      header("Location: /empresa/index");
-    }
-
-  }
-*/
 }
